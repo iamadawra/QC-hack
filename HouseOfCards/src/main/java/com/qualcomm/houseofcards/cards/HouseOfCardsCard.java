@@ -44,7 +44,7 @@ public class HouseOfCardsCard {
 
     /* Card From Integer */
     private static final int SUIT_DIV    = 13;
-    private static final int SUIT_OFFSET = 1;
+    private static final int SUIT_OFFSET = 0;
     private static final int VAL_MOD     = 13;
     private static final int VAL_OFFSET  = 1;
 
@@ -139,8 +139,9 @@ public class HouseOfCardsCard {
      * @param  ace_is_one   Determine value to return for Ace
      * @return 1-11 weight of card
      */
-    public int getBlackJackWeight(boolean ace_is_one) {
-        int ret_val = 0;
+    public int getBlackJackWeight() {
+        int ret_val        = 0;
+        boolean ace_is_one = false;
 
         /* ----------------------- END INIT VARIABLES ----------------------- */
 

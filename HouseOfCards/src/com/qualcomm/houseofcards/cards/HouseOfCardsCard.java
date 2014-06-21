@@ -159,6 +159,7 @@ public class HouseOfCardsCard {
 
     /**
      * Convert card back to an integer
+     *
      * @return Card value from 0 to 51+ with 51+ being a Joker
      */
     public int getID() {

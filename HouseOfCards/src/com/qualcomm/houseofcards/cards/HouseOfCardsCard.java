@@ -107,7 +107,7 @@ public class HouseOfCardsCard {
         }
         else {
             m_val  = (card % VAL_MOD) + VAL_OFFSET;
-            m_suit = (card / SUIT_DIV) + VAL_OFFSET;
+            m_suit = (card / SUIT_DIV) + SUIT_OFFSET;
         }
     } /* HouseOfCardsCard *.
 
@@ -130,6 +130,17 @@ public class HouseOfCardsCard {
     public int getValue() {
         return m_val;
     } /* getValue */
+
+    /**
+     * Convert card back to an integer
+     * @return Card value from 0 to 51+ with 51+ being a Joker
+     */
+    public int getID() {
+        int ret_val = ((m_suit - SUIT_OFFSET) * SUIT_DIV) + (m_val - VAL_OFFSET);
+
+        /* ----------------------- END INIT VARIABLES ----------------------- */
+        return ret_val;
+    } /* getID */
 
     /**
      * Returns a String representation of the card's suit.

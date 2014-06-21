@@ -132,6 +132,32 @@ public class HouseOfCardsCard {
     } /* getValue */
 
     /**
+     * Get the blackjack weight of this card.  Where face cards are valued
+     * at 10 and other cards (besides Ace) are valued respectively.  Aces will
+     * return 1 if ace_is_one is true else it will return 11.
+     *
+     * @param  ace_is_one   Determine value to return for Ace
+     * @return 1-11 weight of card
+     */
+    public int getBlackJackWeight(boolean ace_is_one) {
+        int ret_val = 0;
+
+        /* ----------------------- END INIT VARIABLES ----------------------- */
+
+        if(!isFaceCard()) {
+            ret_val = m_val;
+        } else if (m_val != ACE) {
+            ret_val = 10;
+        } else if (ace_is_one) {
+            ret_val = 1;
+        } else {
+            ret_val = 11;
+        }
+
+        return ret_val;
+    } /* getBlackJackWeight */
+
+    /**
      * Convert card back to an integer
      * @return Card value from 0 to 51+ with 51+ being a Joker
      */
@@ -141,6 +167,21 @@ public class HouseOfCardsCard {
         /* ----------------------- END INIT VARIABLES ----------------------- */
         return ret_val;
     } /* getID */
+
+    /**
+     * Determine if this card is a face value
+     *
+     * @return True if facecard else false
+     */
+    public boolean isFaceCard() {
+        boolean ret_val = m_val == JACK
+                          || m_val == QUEEN
+                          || m_val == KING
+                          || m_val == ACE;
+
+        /* ----------------------- END INIT VARIABLES ----------------------- */
+        return ret_val;
+    } /* isFaceCard */
 
     /**
      * Returns a String representation of the card's suit.
